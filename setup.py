@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="clusterer",
-    version="0.0.1",
+    version="0.1.0",
     author="KshiteejK",
     author_email="kshitijkalambarkar@gmail.com",
     description="A package for easier interface and setup for pipelining in distributed cluster.",
