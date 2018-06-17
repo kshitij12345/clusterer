@@ -23,6 +23,13 @@ def make_file(file_path):
 
     return open(file_path, 'wb')
 
+        
+def pickle_functions(functions):
+    import pickle
+    for function in functions:
+        functions[function] = pickle.dumps(functions[function])
+    return functions
+
 def HashFile(file_path):
     # BUF_SIZE is totally arbitrary, change for your app!
     BUF_SIZE = 65536  # lets read stuff in 64kb chunks!
