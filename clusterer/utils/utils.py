@@ -9,6 +9,20 @@ def ListFilesInDir(dir):
 
     return files
 
+def make_file(file_path):
+    import os
+    import errno
+
+    if not os.path.exists(os.path.dirname(file_path)):
+        try:
+            file_path = file_path.replace('\\','/')
+            os.makedirs(os.path.dirname(file_path))
+        except OSError as exc: # Guard against race condition
+            if exc.errno != errno.EEXIST:
+                raise
+
+    return open(file_path, 'wb')
+
 def HashFile(file_path):
     # BUF_SIZE is totally arbitrary, change for your app!
     BUF_SIZE = 65536  # lets read stuff in 64kb chunks!
